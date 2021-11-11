@@ -1,28 +1,30 @@
-import twitterLogo from './assets/twitter-logo.svg';
+import instagramLogo from './assets/instagram-logo.svg';
+import soliloquyLogo from './assets/soliloquy-logo.svg';
 import './App.css';
 
 // Constants
-const TWITTER_HANDLE = '_buildspace';
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+const INSTAGRAM_HANDLE = 'cytronical.eth';
+const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 const App = () => {
   return (
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🖼 GIF Portal</p>
+          <img alt="Soliloquy Logo" className="logo-svg-big" src={soliloquyLogo} />
+          <p className="header">Soliloquy</p>
           <p className="sub-text">
-            View your GIF collection in the metaverse ✨
+            Chat in realtime with the Solana blockchain.
           </p>
         </div>
         <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <img alt="Twitter Logo" className="logo-svg" src={instagramLogo} />
           <a
             className="footer-text"
-            href={TWITTER_LINK}
+            href={INSTAGRAM_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`built by @${INSTAGRAM_HANDLE}`}</a>
         </div>
       </div>
     </div>

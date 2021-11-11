@@ -76,9 +76,15 @@
   padding-bottom: 45px;
 }
 
-.twitter-logo {
+.logo-svg {
   width: 35px;
   height: 35px;
+}
+
+.logo-svg-big {
+  width: 140px;
+  height: 140px;
+  padding-bottom: 50px;
 }
 
 .footer-text {
