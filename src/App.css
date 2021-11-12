@@ -52,8 +52,12 @@
   color: white;
 }
 
+.cta-button:hover {
+  transform: scale(1.1) perspective(1px);
+}
+
 .connect-wallet-button {
-  background: -webkit-linear-gradient(left, #60c657, #35aee2);
+  background: -webkit-linear-gradient(left, #6699ff, #b664b0);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
 }
