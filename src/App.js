@@ -10,6 +10,7 @@ const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 const App = () => {
 
   const [walletAddress, setWalletAddress] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -38,7 +39,7 @@ const App = () => {
     const { solana } = window;
     if (solana) {
       const response = await solana.connect();
-      console.log('Connected! Public key: ', response.publicKey.toString());
+      console.log('Connected! Public key:', response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
     }
   };
@@ -48,6 +49,39 @@ const App = () => {
       Connect to wallet
     </button>
   );
+
+  const onInputChange = (event) => {
+    const { value } = event.target;
+    setInputValue(value);
+  };
+  
+  const sendMsg = async () => {
+    if (inputValue.length > 0) {
+     console.log('Message:', inputValue);
+    } else {
+      console.log('Empty input. Try again.');
+   }
+  };
+
+  const renderConnectedContainer = () => (
+  <div className="connected-container">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        sendMsg();
+      }}
+    >
+      <input
+        type="text"
+        placeholder="Enter a message!"
+        value={inputValue}
+        onChange={onInputChange}
+      />
+
+      <button type="submit" className="cta-button submit-button">Send</button>
+    </form>
+  </div>
+);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -61,12 +95,12 @@ const App = () => {
     <div className="App">
       <div className={walletAddress ? 'authed-container' : 'container'}>
         <div className="header-container">
-          <img alt="Soliloquy Logo" className="logo-svg-big" src={soliloquyOutline} />
-          <p className="header">Soliloquy</p>
+          <p className="header"><img alt="Soliloquy Logo" className="logo-svg" src={soliloquyOutline} /> Soliloquy</p>
           <p className="sub-text">
             Chat in realtime with the Solana blockchain!
           </p>
           {!walletAddress && renderNotConnectedContainer()}
+          {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="logo-svg" src={instagramLogo} />
