@@ -1,6 +1,11 @@
+// React
 import { useEffect, useState } from 'react';
+
+// Asset imports
 import instagramLogo from './assets/instagram-logo.svg';
 import soliloquyOutline from './assets/soliloquy-outline.svg';
+
+// CSS
 import './App.css';
 
 // Constants
@@ -8,13 +13,9 @@ const INSTAGRAM_HANDLE = 'cytronical.eth';
 const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 const App = () => {
-
   const [walletAddress, setWalletAddress] = useState(null);
-  const [inputValue, setInputValue] = useState('');
-
-  const messages = [
-    'Hello!'
-  ]
+  const [inputValue, setInputValue] = useState();
+  const [messages, setMessages] = useState([])
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -61,11 +62,26 @@ const App = () => {
   
   const sendMsg = async () => {
     if (inputValue.length > 0) {
+      setMessages([...messages, {sender: walletAddress, value: inputValue}]);
+      setInputValue("");
      console.log('Message:', inputValue);
     } else {
       console.log('Empty input. Try again.');
    }
   };
+
+  const msgGrid = () => (
+    <div className="msg-grid">
+    {messages.map((msg, index) => {
+      const address = `${msg.sender.substring(0, 6)}...${msg.sender.substring(msg.sender.length - 4)}`;
+      
+      return (
+        <div className="msg-item" key={index}>
+          <p className="msg-text">{address}: {msg.value}</p>
+        </div>
+      )})}
+    </div>
+  )
 
   const renderConnectedContainer = () => (
   <div className="connected-container">
@@ -85,13 +101,7 @@ const App = () => {
       <button type="submit" className="cta-button submit-button">Send</button>
     </form>
 
-    <div className="msg-grid">
-    {messages.map(msg => (
-        <div className="msg-item" key={msg}>
-          <p className="msg-text">{msg}</p>
-        </div>
-      ))}
-    </div>
+    {msgGrid()}
   </div>
   );
 
