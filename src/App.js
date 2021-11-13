@@ -12,6 +12,10 @@ const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
+  const messages = [
+    'Hello!'
+  ]
+
   const checkIfWalletIsConnected = async () => {
     try {
       const { solana } = window;
@@ -80,8 +84,18 @@ const App = () => {
 
       <button type="submit" className="cta-button submit-button">Send</button>
     </form>
+
+    <div className="msg-grid">
+    {messages.map(msg => (
+        <div className="msg-item" key={msg}>
+          <p className="msg-text">{msg}</p>
+        </div>
+      ))}
+    </div>
   </div>
-);
+  );
+
+
 
   useEffect(() => {
     const onLoad = async () => {

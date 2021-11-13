@@ -91,6 +91,18 @@
   font-weight: bold;
 }
 
+.msg-grid {
+  display: grid;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.msg-text {
+  font-size: 25px;
+  color: white;
+}
+
 .connected-container input[type='text'] {
   display: inline-block;
   color: white;
