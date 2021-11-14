@@ -7,6 +7,7 @@ Want to test out the beta version! Visit https://discourse.cytronicode.repl.co/.
 ### v0.3.0
 - Added CSS styling for messages
 - Some reformatting of message content
+- Added manifest.json to index.html
 
 ## Next steps
 - **Actually connecting and writing onto the Solana blockchain**
