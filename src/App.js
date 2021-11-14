@@ -8,10 +8,12 @@ const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 const DEVELOPER_ADDRESS = 'HhK2kzyUnpg1CDD9dj6JqYPP5auWj22mdiQ45jmvdRgh';
 
+const DEVELOPER_DISCORD = 'Cytronical.eth#4975';
+
 const App = () => {
 
   const sendSolToDev = () => (
-    <p className="sub-text"><b>Want to have a voice on what we are building next?</b><br />1. Donate some SOL to <code>{DEVELOPER_ADDRESS}</code><br />2. DM Cytronical.eth#4975 your address to become a patreon!</p>
+    <p className="sub-text"><b>Want to have a voice on what we are building next?</b><br />1. Donate some SOL to <code>{DEVELOPER_ADDRESS}</code><br />2. DM <code>{DEVELOPER_DISCORD}</code> your address to become a patreon!</p>
   );
 
   return (
