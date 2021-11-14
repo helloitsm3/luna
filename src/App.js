@@ -14,7 +14,7 @@ const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([])
 
   const checkIfWalletIsConnected = async () => {
@@ -24,13 +24,6 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log('Phantom wallet found!');
-          const response = await solana.connect({ onlyIfTrusted: true });
-          console.log(
-            'Connected with public key: ',
-            response.publicKey.toString()
-          );
-
-          setWalletAddress(response.publicKey.toString());
         }
       } else {
         alert('Solana object not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.');
@@ -43,7 +36,7 @@ const App = () => {
   const connectWallet = async () => {
     const { solana } = window;
     if (solana) {
-      const response = await solana.connect();
+      const response = await solana.connect({ onlyIfTrusted: true });
       console.log('Connected! Public key:', response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
     }
@@ -62,9 +55,16 @@ const App = () => {
   
   const sendMsg = async () => {
     if (inputValue.length > 0) {
-      setMessages([...messages, {sender: walletAddress, value: inputValue}]);
+
+      setMessages([...messages, {
+        sender: walletAddress, 
+        value: inputValue,
+        timeSent: new Date().toLocaleString()
+        }]);
+
       setInputValue("");
-     console.log('Message:', inputValue);
+
+     console.log(`Message sent! Message:`, inputValue);
     } else {
       console.log('Empty input. Try again.');
    }
@@ -78,6 +78,7 @@ const App = () => {
       return (
         <div className="msg-item" key={index}>
           <p className="msg-text">{address}: {msg.value}</p>
+          <p className="time-text">{msg.timeSent}</p>
         </div>
       )})}
     </div>
@@ -85,6 +86,7 @@ const App = () => {
 
   const renderConnectedContainer = () => (
   <div className="connected-container">
+
     <form
       onSubmit={(event) => {
         event.preventDefault();
@@ -93,8 +95,8 @@ const App = () => {
     >
       <input
         type="text"
-        placeholder="Enter a message!"
         value={inputValue}
+        placeholder="Enter a message!"
         onChange={onInputChange}
       />
 
