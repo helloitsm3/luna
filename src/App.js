@@ -24,6 +24,13 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log('Phantom wallet found!');
+          const response = await solana.connect({ onlyIfTrusted: true });
+          console.info(
+            'Connected with public key: ',
+            response.publicKey.toString()
+          );
+
+          setWalletAddress(response.publicKey.toString());
         }
       } else {
         alert('Solana object not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.');
@@ -36,7 +43,7 @@ const App = () => {
   const connectWallet = async () => {
     const { solana } = window;
     if (solana) {
-      const response = await solana.connect({ onlyIfTrusted: true });
+      const response = await solana.connect();
       console.log('Connected! Public key:', response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
     }
@@ -53,18 +60,25 @@ const App = () => {
     setInputValue(value);
   };
   
+  const sortMsg = () => {
+   return messages.sort((a, b) => {
+      return b.timeInt - a.timeInt;
+    })
+  }
+
   const sendMsg = async () => {
     if (inputValue.length > 0) {
 
       setMessages([...messages, {
         sender: walletAddress, 
         value: inputValue,
-        timeSent: new Date().toLocaleString()
+        timeSent: new Date().toLocaleString(),
+        timeInt: Date.now()
         }]);
 
-      setInputValue("");
-
      console.log(`Message sent! Message:`, inputValue);
+
+     setInputValue("");
     } else {
       console.log('Empty input. Try again.');
    }
@@ -72,15 +86,16 @@ const App = () => {
 
   const msgGrid = () => (
     <div className="msg-grid">
-    {messages.map((msg, index) => {
-      const address = `${msg.sender.substring(0, 6)}...${msg.sender.substring(msg.sender.length - 4)}`;
+    {
+      sortMsg().slice(0,3).map((msg, index) => {
+        const address = `${msg.sender.substring(0, 6)}...${msg.sender.substring(msg.sender.length - 4)}`;
       
-      return (
-        <div className="msg-item" key={index}>
-          <p className="msg-text">{address}: {msg.value}</p>
-          <p className="time-text">{msg.timeSent}</p>
-        </div>
-      )})}
+      return <div key={index}>
+        <p className="msg-text">{address}: {msg.value}</p>
+        <p className="time-text">{msg.timeSent}</p>
+      </div>
+      })
+    }
     </div>
   )
 
