@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 // Asset imports
 import instagramLogo from './assets/instagram-logo.svg';
-import soliloquyOutline from './assets/soliloquy-outline.svg';
+import LunaOutline from './assets/luna-outline.svg';
 
 // CSS
 import './App.css';
@@ -135,7 +135,7 @@ const App = () => {
     <div className="App">
       <div className={walletAddress ? 'authed-container' : 'container'}>
         <div className="header-container">
-          <p className="header"><img alt="Soliloquy Logo" className="logo-svg" src={soliloquyOutline} /> Soliloquy</p>
+          <p className="header"><img alt="Luna Logo" className="logo-svg" src={LunaOutline} /> Luna</p>
           <p className="sub-text">
             Chat in realtime with the Solana blockchain!
           </p>
