@@ -90,9 +90,8 @@ const App = () => {
       sortMsg().slice(0,3).map((msg, index) => {
         const address = `${msg.sender.substring(0, 6)}...${msg.sender.substring(msg.sender.length - 4)}`;
       
-      return <div key={index}>
-        <p className="msg-text">{address}: {msg.value}</p>
-        <p className="time-text">{msg.timeSent}</p>
+      return <div className="msg-box" key={index}>
+        <p className="msg-text">{address}: {msg.value} <span className="time-span">{msg.timeSent}</span></p>
       </div>
       })
     }
@@ -111,7 +110,7 @@ const App = () => {
       <input
         type="text"
         value={inputValue}
-        placeholder="Enter a message!"
+        placeholder="Message to the blockchain!"
         onChange={onInputChange}
       />
 
