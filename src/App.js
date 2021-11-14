@@ -88,10 +88,14 @@ const App = () => {
     <div className="msg-grid">
     {
       sortMsg().slice(0,3).map((msg, index) => {
-        const address = `${msg.sender.substring(0, 6)}...${msg.sender.substring(msg.sender.length - 4)}`;
+        const address = `${msg.sender}`;
       
       return <div className="msg-box" key={index}>
-        <p className="msg-text">{address}: {msg.value} <span className="time-span">{msg.timeSent}</span></p>
+        <p className="msg-text">
+          <span className="sender-span">{address}</span>
+          <span className="time-span">{msg.timeSent}</span>
+          <br />{msg.value}
+        </p>
       </div>
       })
     }
