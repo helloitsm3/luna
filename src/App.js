@@ -1,5 +1,5 @@
 import instagramLogo from './assets/instagram-logo.svg';
-import soliloquyOutline from './assets/soliloquy-outline.svg';
+import LunaOutline from './assets/luna-outline.svg';
 import './App.css';
 
 // Constants
@@ -13,15 +13,15 @@ const DEVELOPER_DISCORD = 'Cytronical.eth#4975';
 const App = () => {
 
   const sendSolToDev = () => (
-    <p className="sub-text"><b>Want to have a voice on what we are building next?</b><br />1. Donate some SOL to <code>{DEVELOPER_ADDRESS}</code><br />2. DM <code>{DEVELOPER_DISCORD}</code> your address to become a patreon!</p>
+    <p className="sub-text"><b>Want to have a voice on what we are building next?</b><br /><br />1. Donate some SOL to <code>{DEVELOPER_ADDRESS}</code><br />and DM <code>{DEVELOPER_DISCORD}</code> your address to become a patreon!<br /><br />2. Join our Discord server! Link coming soon™</p>
   );
 
   return (
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <img alt="Soliloquy Logo" className="logo-svg-big" src={soliloquyOutline} />
-          <p className="header">Soliloquy</p>
+          <img alt="Luna Logo" className="logo-svg-big" src={LunaOutline} />
+          <p className="header">Luna</p>
           <p className="sub-text">
             Chat in realtime with the Solana blockchain!
           </p>
