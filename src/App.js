@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 // Asset imports
 import instagramLogo from './assets/instagram-logo.svg';
-import LunaOutline from './assets/luna-outline.svg';
+import ContinuumOutline from './assets/continuum-outline.svg';
 
 // CSS
 import './App.css';
@@ -139,7 +139,7 @@ const App = () => {
     <div className="App">
       <div className={walletAddress ? 'authed-container' : 'container'}>
         <div className="header-container">
-          <p className="header"><img alt="Luna Logo" className="logo-svg" src={LunaOutline} /> Apollo</p>
+          <p className="header"><img alt="Continuum Logo" className="logo-svg" src={ContinuumOutline} /> continuum.sol</p>
           <p className="sub-text">
             Chat in realtime with the Solana blockchain!
           </p>
