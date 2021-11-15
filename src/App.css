@@ -62,7 +62,7 @@
   animation: gradient-animation 4s ease infinite;
 }
 
-.submit-gif-button {
+.submit-button {
   background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
@@ -85,40 +85,45 @@
   height: 35px;
 }
 
-.logo-svg-big {
-  width: 140px;
-  height: 140px;
-  padding-bottom: 50px;
-}
-
 .footer-text {
   color: white;
   font-size: 16px;
   font-weight: bold;
 }
 
-.gif-grid {
+.msg-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 1.5rem;
   justify-items: center;
   margin: 0;
   padding: 0;
 }
 
-.gif-grid .gif-item {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-self: center;
-  align-self: center;
+.msg-box {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 60%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 5px auto;
 }
 
-.gif-item img {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  object-fit: cover;
+.msg-text {
+  font-size: 25px;
+  color: white;
+  text-align: left;
+}
+
+.sender-span {
+  font-size: 18px;
+  color: white;
+  float: left;
+}
+
+.time-span {
+  font-size: 15px;
+  color: grey;
+  float: right;
 }
 
 .connected-container input[type='text'] {
@@ -126,13 +131,13 @@
   color: white;
   padding: 10px;
   width: 50%;
-  height: 60px;
+  height: 50px;
   font-size: 16px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 10px;
-  margin: 50px auto;
+  margin: 25px auto;
 }
 
 .connected-container button {
