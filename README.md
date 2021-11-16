@@ -3,7 +3,7 @@
   <div align="center">
     <h1 style="font-weight: bold">Luna 💬</h1>
     <a href="https://github.com/Cytronicode/luna">
-        <img src="./frontend/public/assets/android-chrome-192x192.png" alt="Logo" style="width: 20%">
+        <img src="./public/assets/android-chrome-192x192.png" alt="Logo" style="width: 20%">
     </a>
     <br />
     <br />
