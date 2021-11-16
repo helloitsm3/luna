@@ -5,6 +5,10 @@ import { useEffect, useState } from 'react';
 import instagramLogo from './assets/instagram-logo.svg';
 import ContinuumOutline from './assets/continuum-outline.svg';
 
+// Fort Awesome icons (unused for now)
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
 // CSS
 import './App.css';
 
