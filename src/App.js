@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 // Asset imports
-import instagramLogo from './assets/social/instagram-logo.svg';
+import instagramLogo from './assets/instagram-logo.svg';
 import ContinuumOutline from './assets/continuum-outline.svg';
 
 // CSS
