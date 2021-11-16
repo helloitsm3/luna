@@ -12,8 +12,6 @@ import './App.css';
 const INSTAGRAM_HANDLE = 'cytronical.eth';
 const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
-// Report web vitals
-
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [inputValue, setInputValue] = useState("");

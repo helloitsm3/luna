@@ -1,3 +1,8 @@
+:root {
+  --continuum-color: linear-gradient(135deg, #00a6ff 0%, #00ff88 100%);
+  --continuum-button: linear-gradient(to right, #4776E6 0%, #8E54E9 50%, #4776E6 100%);
+}
+
 .App {
   height: 100vh;
   background-color: #1a202c;
@@ -24,19 +29,16 @@
   margin: 0;
   font-size: 50px;
   font-weight: bold;
-  color: white;
+  text-align: center;
+	background: var(--continuum-color);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
+	
 .sub-text {
   font-size: 25px;
   color: white;
-}
-
-.gradient-text {
-  background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .cta-button {
@@ -57,13 +59,13 @@
 }
 
 .connect-wallet-button {
-  background: -webkit-linear-gradient(left, #6699ff, #b664b0);
+  background: var(--continuum-button);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
 }
 
 .submit-button {
-  background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
+  background: var(--continuum-button);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
