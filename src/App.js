@@ -2,12 +2,8 @@
 import { useEffect, useState } from 'react';
 
 // Asset imports
-import instagramLogo from './assets/instagram-logo.svg';
+import instagramLogo from './assets/social/instagram-logo.svg';
 import ContinuumOutline from './assets/continuum-outline.svg';
-
-// Fort Awesome icons (unused for now)
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
 
 // CSS
 import './App.css';
@@ -15,6 +11,8 @@ import './App.css';
 // Constants
 const INSTAGRAM_HANDLE = 'cytronical.eth';
 const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
+
+// Report web vitals
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
