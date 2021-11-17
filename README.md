@@ -63,3 +63,6 @@ git clone with Github CLI     gh repo clone Cytronicode/continuum
 ```
 
 3. (Optional) Follow [here](https://www.windowscentral.com/install-windows-subsystem-linux-windows-10) to install WSL on Windows 10
+
+## Support
+Join the Discord support server [here]( https://discord.gg/AWG9GkDE5P).
