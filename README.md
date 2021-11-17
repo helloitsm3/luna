@@ -1,8 +1,8 @@
 <br />
 <div>
   <div align="center">
-    <h1 style="font-weight: bold">Luna</h1>
-    <a href="https://github.com/Cytronicode/luna">
+    <h1 style="font-weight: bold">Continuum</h1>
+    <a href="https://github.com/Cytronicode/continuum">
         <img src="./public/assets/android-chrome-192x192.png" alt="Logo" style="width: 20%">
     </a>
     <br />
@@ -10,9 +10,9 @@
     <p align="center">
         Web3 app on the Solana blockchain with React and Rust that allows users with accounts to chat in realtime
         <br />
-        <a href="https://github.com/Cytronicode/luna/issues">Report Bugs</a>
+        <a href="https://github.com/Cytronicode/continuum/issues">Report Bugs</a>
         ·
-        <a href="https://github.com/Cytronicode/luna/issues">Request Feature</a>
+        <a href="https://github.com/Cytronicode/continuum/issues">Request Feature</a>
     </p>
   </div>
 </div>
@@ -42,9 +42,9 @@ This is an example of how you can set up your project locally. To get a local co
 1. Clone the repo
 
 ```sh
-git clone with HTTPS          https://github.com/Cytronicode/luna.git
-git clone with SSH            git@github.com:Cytronicode/luna.git
-git clone with Github CLI     gh repo clone Cytronicode/luna
+git clone with HTTPS          https://github.com/Cytronicode/continuum.git
+git clone with SSH            git@github.com:Cytronicode/continuum.git
+git clone with Github CLI     gh repo clone Cytronicode/continuum
 ```
 
 2. Development
