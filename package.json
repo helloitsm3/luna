@@ -40,7 +40,7 @@
     "type": "git",
     "url": "git+https://github.com/Cytronicode/continuum.git"
   },
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/Cytronicode/continuum/issues"
   },
