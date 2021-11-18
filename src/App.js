@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 
 // Asset imports
-import instagramLogo from "./assets/instagram-logo.svg";
-import ContinuumOutline from "./assets/continuum-outline.svg";
+import instagram from "./assets/social/instagram.svg";
+import logoOutline from "./assets/logo/outline.svg";
 
 // CSS
 import "./App.css";
@@ -136,14 +136,14 @@ const App = () => {
       <div className={walletAddress ? "authed-container" : "container"}>
         <div className="header-container">
           <p className="header">
-            <img alt="Continuum Logo" className="logo-svg" src={ContinuumOutline} /> continuum.sol
+            <img alt="Continuum Logo" className="logo-svg" src={logoOutline} /> continuum.sol
           </p>
           <p className="sub-text">Chat in realtime with the Solana blockchain!</p>
           {!walletAddress && renderNotConnectedContainer()}
           {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
-          <img alt="Twitter Logo" className="logo-svg" src={instagramLogo} />
+          <img alt="Twitter Logo" className="logo-svg" src={instagram} />
           <a className="footer-text" href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">{`built by @${INSTAGRAM_HANDLE}`}</a>
         </div>
       </div>
