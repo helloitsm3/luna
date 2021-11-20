@@ -13,10 +13,14 @@ const INSTAGRAM_HANDLE = "cytronical.eth";
 const INSTAGRAM_LINK = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 const App = () => {
+  // States
   const [walletAddress, setWalletAddress] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([]);
 
+  // Actions
+
+  // Wallet actions
   const checkIfWalletIsConnected = async () => {
     try {
       const { solana } = window;
@@ -43,8 +47,13 @@ const App = () => {
       const response = await solana.connect();
       console.log("Connected! Public key:", response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
+    } else {
+        alert("Solana object not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.");
     }
   };
+
+  // Renders
+  const renderVotingContainer = () => {}
 
   const renderNotConnectedContainer = () => (
     <button className="cta-button connect-wallet-button" onClick={connectWallet}>
@@ -52,6 +61,26 @@ const App = () => {
     </button>
   );
 
+  const renderConnectedContainer = () => (
+    <div className="connected-container">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          sendMsg();
+        }}
+      >
+        <input type="text" value={inputValue} placeholder="Message to the blockchain!" onChange={onInputChange} />
+
+        <button type="submit" className="cta-button submit-button">
+          Send
+        </button>
+      </form>
+
+      {msgGrid()}
+    </div>
+  );
+
+  // Messages
   const onInputChange = (event) => {
     const { value } = event.target;
     setInputValue(value);
@@ -104,25 +133,7 @@ const App = () => {
     </div>
   );
 
-  const renderConnectedContainer = () => (
-    <div className="connected-container">
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          sendMsg();
-        }}
-      >
-        <input type="text" value={inputValue} placeholder="Message to the blockchain!" onChange={onInputChange} />
-
-        <button type="submit" className="cta-button submit-button">
-          Send
-        </button>
-      </form>
-
-      {msgGrid()}
-    </div>
-  );
-
+  // Effects
   useEffect(() => {
     const onLoad = async () => {
       await checkIfWalletIsConnected();
@@ -131,6 +142,7 @@ const App = () => {
     return () => window.removeEventListener("load", onLoad);
   }, []);
 
+  // Return
   return (
     <div className="App">
       <div className={walletAddress ? "authed-container" : "container"}>
@@ -139,7 +151,7 @@ const App = () => {
             <img alt="Continuum Logo" className="logo-svg" src={logoOutline} /> continuum.sol
           </p>
           <p className="sub-text">Chat in realtime with the Solana blockchain!</p>
-          {!walletAddress && renderNotConnectedContainer()}
+          {!walletAddress && renderNotConnectedContainer() && renderVotingContainer()}
           {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
