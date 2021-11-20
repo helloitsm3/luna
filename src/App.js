@@ -53,13 +53,27 @@ const App = () => {
   };
 
   // Renders
-  const renderVotingContainer = () => {}
+  const renderVotingContainer = () => {
+    return (
+      <div className="voting-container">
+        <p className="sub-text">Vote here to have a voice in future development!</p>
+        <p className="description-text">Feature request</p>
+        <button className="cta-button voting-button" onClick={onSubmitVote}>Option 1</button>
+        <button className="cta-button voting-button" onClick={onSubmitVote}>Option 2</button>
+      </div>
+    )
+  };
+
+  const onSubmitVote = () => {}
 
   const renderNotConnectedContainer = () => (
-    <button className="cta-button connect-wallet-button" onClick={connectWallet}>
-      Connect to wallet
-    </button>
-  );
+  <div>
+      <button className="cta-button connect-wallet-button" onClick={connectWallet}>
+        Connect to wallet
+      </button>
+      {renderVotingContainer()}
+  </div>
+);
 
   const renderConnectedContainer = () => (
     <div className="connected-container">
@@ -151,7 +165,7 @@ const App = () => {
             <img alt="Continuum Logo" className="logo-svg" src={logoOutline} /> continuum.sol
           </p>
           <p className="sub-text">Chat in realtime with the Solana blockchain!</p>
-          {!walletAddress && renderNotConnectedContainer() && renderVotingContainer()}
+          {!walletAddress && renderNotConnectedContainer()}
           {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">

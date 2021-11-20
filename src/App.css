@@ -25,6 +25,15 @@
   padding: 30px;
 }
 
+.voting-container {
+  height: 25%;
+  border-radius: 25px;
+  border: 5px solid white;
+  padding: 20px;
+  margin:5% auto;
+  width: 40%;
+}
+
 .header {
   margin: 0;
   font-size: 50px;
@@ -39,6 +48,12 @@
 .sub-text {
   font-size: 25px;
   color: white;
+}
+
+.description-text {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
 }
 
 .cta-button {
@@ -62,6 +77,13 @@
   background: var(--continuum-button);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
+}
+
+.voting-button {
+  background: var(--continuum-color);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  margin: 10px;
 }
 
 .submit-button {
