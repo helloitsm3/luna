@@ -26,12 +26,8 @@ const App = () => {
       const { solana } = window;
 
       if (solana) {
-        if (solana.isPhantom) {
-          console.log("Phantom wallet found!");
-          const response = await solana.connect({ onlyIfTrusted: true });
-          console.info("Connected with public key: ", response.publicKey.toString());
-
-          setWalletAddress(response.publicKey.toString());
+        if (solana) {
+          console.log("Solana wallet found!");
         }
       } else {
         alert("Solana object not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.");
@@ -43,12 +39,12 @@ const App = () => {
 
   const connectWallet = async () => {
     const { solana } = window;
-    if (solana) {
+    if (solana.isPhantom) {
       const response = await solana.connect();
       console.log("Connected! Public key:", response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
     } else {
-        alert("Solana object not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.");
+        alert("Phantom wallet not found! Get a Phantom Wallet at https://phantom.app/ in order to use this app.");
     }
   };
 
