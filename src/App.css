@@ -60,13 +60,14 @@
   height: 45px;
   border: 0;
   width: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   color: white;
+  animation: gradient-animation 4s ease infinite;
 }
 
 .cta-button:hover {
@@ -76,20 +77,24 @@
 .connect-wallet-button {
   background: var(--continuum-button);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
 }
 
 .voting-button {
   background: var(--continuum-color);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
   margin: 10px;
+}
+
+.donate-link {
+  margin-left: 50px;
+  background: var(--continuum-button);
+  background-size: 200% 200%;
+  text-decoration: none;
 }
 
 .submit-button {
   background: var(--continuum-button);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
 }
 

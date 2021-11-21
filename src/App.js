@@ -66,6 +66,12 @@ const App = () => {
 
   const onSubmitVote = () => {}
 
+  const donationButton = () => (
+    <div>
+    <a href="https://explorer.solana.com/address/HhK2kzyUnpg1CDD9dj6JqYPP5auWj22mdiQ45jmvdRgh?cluster=devnet" target="_blank" rel="noopener noreferrer" className="cta-button donate-link">Donate to the developers</a>
+    </div>
+  )
+
   const renderNotConnectedContainer = () => (
   <div>
       <button className="cta-button connect-wallet-button" onClick={connectWallet}>
@@ -129,7 +135,7 @@ const App = () => {
   const msgGrid = () => (
     <div className="msg-grid">
       {sortMsg()
-        .slice(0, 3)
+        .slice(0, 6)
         .map((msg, index) => {
           const address = `${msg.sender}`;
 
@@ -162,7 +168,7 @@ const App = () => {
       <div className={walletAddress ? "authed-container" : "container"}>
         <div className="header-container">
           <p className="header">
-            <img alt="Continuum Logo" className="logo-svg" src={logoOutline} /> continuum.sol
+            <img alt="Continuum Logo" className="logo-svg" src={logoOutline}/> continuum.sol
           </p>
           <p className="sub-text">Chat in realtime with the Solana blockchain!</p>
           {!walletAddress && renderNotConnectedContainer()}
@@ -171,6 +177,7 @@ const App = () => {
         <div className="footer-container">
           <img alt="Twitter Logo" className="logo-svg" src={instagram} />
           <a className="footer-text" href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">{`built by @${INSTAGRAM_HANDLE}`}</a>
+          {donationButton()}
         </div>
       </div>
     </div>
