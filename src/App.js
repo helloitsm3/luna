@@ -68,7 +68,7 @@ const App = () => {
 
   const donationButton = () => (
     <div>
-    <a href="https://explorer.solana.com/address/HhK2kzyUnpg1CDD9dj6JqYPP5auWj22mdiQ45jmvdRgh?cluster=devnet" target="_blank" rel="noopener noreferrer" className="cta-button donate-link">Donate to the developers</a>
+    <a href="https://explorer.solana.com/address/HhK2kzyUnpg1CDD9dj6JqYPP5auWj22mdiQ45jmvdRgh" target="_blank" rel="noopener noreferrer" className="cta-button donate-link">Donate to the developers</a>
     </div>
   )
 
