@@ -131,7 +131,7 @@ const App = () => {
   const msgGrid = () => (
     <div className="msg-grid">
       {sortMsg()
-        .slice(0, 6)
+        .slice(0, 3)
         .map((msg, index) => {
           const address = `${msg.sender}`;
 
