@@ -25,6 +25,15 @@
   padding: 30px;
 }
 
+.voting-container {
+  height: 25%;
+  border-radius: 25px;
+  border: 5px solid white;
+  padding: 20px;
+  margin:5% auto;
+  width: 40%;
+}
+
 .header {
   margin: 0;
   font-size: 50px;
@@ -41,17 +50,24 @@
   color: white;
 }
 
+.description-text {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
 .cta-button {
   height: 45px;
   border: 0;
   width: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   color: white;
+  animation: gradient-animation 4s ease infinite;
 }
 
 .cta-button:hover {
@@ -61,13 +77,24 @@
 .connect-wallet-button {
   background: var(--continuum-button);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
+}
+
+.voting-button {
+  background: var(--continuum-color);
+  background-size: 200% 200%;
+  margin: 10px;
+}
+
+.donate-link {
+  margin-left: 50px;
+  background: var(--continuum-button);
+  background-size: 200% 200%;
+  text-decoration: none;
 }
 
 .submit-button {
   background: var(--continuum-button);
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
 }
 
@@ -93,9 +120,12 @@
   font-weight: bold;
 }
 
+
 .msg-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
+  overflow-wrap: break-word;
   margin: 0;
   padding: 0;
 }
