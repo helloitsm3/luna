@@ -1,8 +1,5 @@
-[programs.localnet]
-backend = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
-
 [programs.devnet]
-backend = "9zXjbuZi8zFRJg8xfUfkSAFKGH9EFqGwJStoaQJBrSDR"
+backend = "74NXmpQ44hWKgAcB9epSQXS3ywmSv5qMbQeBMFzwHk3W"
 
 [registry]
 url = "https://anchor.projectserum.com"
