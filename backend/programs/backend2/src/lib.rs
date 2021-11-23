@@ -9,8 +9,6 @@ pub mod backend2 {
     use super::*;
     pub fn start_off(_ctx: Context<StartOff>) -> ProgramResult {
         let _base_account = &mut _ctx.accounts.base_account;
-        _base_account.no = 0;
-        _base_account.yes = 0;
         _base_account.message_count = 0;
         _base_account.proposal_count = 0;
 
@@ -46,10 +44,10 @@ pub mod backend2 {
         Ok(())
     }
 
-    pub fn vote(_ctx: Context<AddMsg>, title: String, yes_vote: u64) -> ProgramResult {
+    pub fn vote_proposal(_ctx: Context<AddMsg>, title: String, vote: String) -> ProgramResult {
         let base_account = &mut _ctx.accounts.base_account;
         let account = *base_account.to_account_info().key;
-
+        let user_vote = vote.to_lowercase();
         let index = base_account
             .proposal_list
             .iter()
@@ -59,19 +57,37 @@ pub mod backend2 {
         let proposal = &mut base_account.proposal_list[index];
         let item = VoteStruct {
             user_address: account,
-            no: if yes_vote == 1 { 0 } else { 1 },
-            yes: if yes_vote == 1 { 1 } else { 0 },
+            vote: vote.to_lowercase(),
         };
 
         proposal.voters.push(item);
 
-        if yes_vote == 1 {
-            proposal.no_count -= 1;
-            proposal.yes_count += 1;
-        } else {
-            proposal.no_count += 1;
-            proposal.yes_count -= 1;
+        match user_vote.as_str() {
+            "yes" => {
+                if proposal.no_count > 0 {
+                    proposal.no_count -= 1;
+                    proposal.yes_count += 1;
+                } else {
+                    proposal.no_count = 0;
+                    proposal.yes_count += 1;
+                }
+            }
+            "no" => {
+                if proposal.yes_count > 0 {
+                    proposal.no_count += 1;
+                    proposal.yes_count -= 1;
+                } else {
+                    proposal.no_count += 1;
+                    proposal.yes_count = 0;
+                }
+            }
+
+            _ => {
+                proposal.no_count = 0;
+                proposal.yes_count = 0;
+            }
         }
+
         Ok(())
     }
 }
@@ -96,8 +112,6 @@ pub struct AddMsg<'info> {
 pub struct BaseAccount {
     pub message_count: u64,
     pub proposal_count: u64,
-    pub yes: u64,
-    pub no: u64,
     pub proposal_list: Vec<ProposalStruct>,
     pub message_list: Vec<MessageStruct>,
 }
@@ -120,6 +134,5 @@ pub struct ProposalStruct {
 #[derive(Debug, Clone, AnchorSerialize, AnchorDeserialize)]
 pub struct VoteStruct {
     pub user_address: Pubkey,
-    pub yes: u64,
-    pub no: u64,
+    pub vote: String,
 }

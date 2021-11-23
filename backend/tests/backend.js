@@ -34,14 +34,14 @@ const main = async () => {
     },
   });
 
-  // await program.rpc.vote("Would you like test proposal to be implemented?", 1, {
-  //   accounts: {
-  //     baseAccount: baseAccount.publicKey,
-  //   },
-  // });
+  await program.rpc.voteProposal("Would you like test proposal to be implemented?", "yes", {
+    accounts: {
+      baseAccount: baseAccount.publicKey,
+    },
+  });
 
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
-  console.log(`Proposal Count: ${account.proposalCount} `, account.proposalList);
+  console.log(`Proposal Count: ${account.proposalCount} `, account.proposalList[0].voters, account.proposalList[0]);
 };
 
 const runMain = async () => {
